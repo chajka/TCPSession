@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class TCPSession;
+@protocol TCPSessionDelegate <NSObject>
+@required
+- (void) session:(TCPSession * _Nonnull)session hasBytesAvailable:(NSInputStream * _Nonnull)stream;
+
+@optional
+- (void) session:(TCPSession * _Nonnull)session canAcceptBytes:(NSOutputStream * _Nonnull)stream;
+- (void) session:(TCPSession * _Nonnull)session openCompleted:(NSStream * _Nonnull)stream;
+- (void) session:(TCPSession * _Nonnull)session endEncountered:(NSStream * _Nonnull)stream;
+- (void) session:(TCPSession * _Nonnull)session errorOccurred:(NSStream * _Nonnull)stream;
+@end
+
 @interface TCPSession : NSObject
 
 @end
