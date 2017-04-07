@@ -14,6 +14,7 @@
 - (void) session:(TCPSession * _Nonnull)session hasBytesAvailable:(NSInputStream * _Nonnull)stream;
 
 @optional
+- (void) session:(TCPSession * _Nonnull)session canAcceptBytes:(NSOutputStream * _Nonnull)stream;
 @end
 
 @interface TCPSession : NSObject
