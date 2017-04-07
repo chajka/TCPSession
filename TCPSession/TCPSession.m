@@ -9,5 +9,15 @@
 #import "TCPSession.h"
 
 @implementation TCPSession
+#pragma mark - synthesize properties
+#pragma mark - class method
+#pragma mark - constructor / destructor
+#pragma mark - override
+#pragma mark - properties
+#pragma mark - actions
+#pragma mark - messages
+#pragma mark - private
+#pragma mark - delegate
+#pragma mark - C functions
 
 @end
