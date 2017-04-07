@@ -20,6 +20,17 @@
 - (void) session:(TCPSession * _Nonnull)session errorOccurred:(NSStream * _Nonnull)stream;
 @end
 
-@interface TCPSession : NSObject
+@interface TCPSession : NSObject {
+	NSString													*server;
+	SInt32														port;
 
+	id<TCPSessionDelegate>										delegate;
+	BOOL														haveCanAcceptBytes;
+	BOOL														haveOpenCompleted;
+	BOOL														haveEndEncounted;
+	BOOL														haveErrorOccured;
+}
+@property (strong, readonly) NSString 							* _Nonnull server;
+@property (readonly) SInt32										port;
+@property (weak, readwrite) id<TCPSessionDelegate> _Nullable	delegate;
 @end
