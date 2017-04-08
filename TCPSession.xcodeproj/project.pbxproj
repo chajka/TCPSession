@@ -9,12 +9,32 @@
 /* Begin PBXBuildFile section */
 		C6861D771E96E4E7008A0C2C /* TCPSession.h in Headers */ = {isa = PBXBuildFile; fileRef = C6861D761E96E4E7008A0C2C /* TCPSession.h */; };
 		C6861D791E96E4E7008A0C2C /* TCPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C6861D781E96E4E7008A0C2C /* TCPSession.m */; };
+		C6DB88531E984B6000B68692 /* TCPSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB88521E984B6000B68692 /* TCPSessionTests.m */; };
+		C6DB88551E984B6000B68692 /* libTCPSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6861D731E96E4E7008A0C2C /* libTCPSession.a */; };
+		C6DB885D1E988D8E00B68692 /* TCPSessionException.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DB885B1E988D8E00B68692 /* TCPSessionException.h */; };
+		C6DB885E1E988D8E00B68692 /* TCPSessionException.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB885C1E988D8E00B68692 /* TCPSessionException.m */; };
+		C6DB885F1E988D8E00B68692 /* TCPSessionException.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB885C1E988D8E00B68692 /* TCPSessionException.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6DB88561E984B6000B68692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6861D6B1E96E4E6008A0C2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6861D721E96E4E6008A0C2C;
+			remoteInfo = TCPSession;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C6861D731E96E4E7008A0C2C /* libTCPSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTCPSession.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6861D761E96E4E7008A0C2C /* TCPSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPSession.h; sourceTree = "<group>"; };
 		C6861D781E96E4E7008A0C2C /* TCPSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPSession.m; sourceTree = "<group>"; };
+		C6DB88501E984B6000B68692 /* TCPSessionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCPSessionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DB88521E984B6000B68692 /* TCPSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPSessionTests.m; sourceTree = "<group>"; };
+		C6DB88541E984B6000B68692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DB885B1E988D8E00B68692 /* TCPSessionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSessionException.h; sourceTree = "<group>"; };
+		C6DB885C1E988D8E00B68692 /* TCPSessionException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPSessionException.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +45,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6DB884D1E984B6000B68692 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6DB88551E984B6000B68692 /* libTCPSession.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -32,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				C6861D751E96E4E7008A0C2C /* TCPSession */,
+				C6DB88511E984B6000B68692 /* TCPSessionTests */,
 				C6861D741E96E4E7008A0C2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				C6861D731E96E4E7008A0C2C /* libTCPSession.a */,
+				C6DB88501E984B6000B68692 /* TCPSessionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -49,8 +79,19 @@
 			children = (
 				C6861D761E96E4E7008A0C2C /* TCPSession.h */,
 				C6861D781E96E4E7008A0C2C /* TCPSession.m */,
+				C6DB885B1E988D8E00B68692 /* TCPSessionException.h */,
+				C6DB885C1E988D8E00B68692 /* TCPSessionException.m */,
 			);
 			path = TCPSession;
+			sourceTree = "<group>";
+		};
+		C6DB88511E984B6000B68692 /* TCPSessionTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6DB88521E984B6000B68692 /* TCPSessionTests.m */,
+				C6DB88541E984B6000B68692 /* Info.plist */,
+			);
+			path = TCPSessionTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6861D771E96E4E7008A0C2C /* TCPSession.h in Headers */,
+				C6DB885D1E988D8E00B68692 /* TCPSessionException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +126,24 @@
 			productReference = C6861D731E96E4E7008A0C2C /* libTCPSession.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		C6DB884F1E984B6000B68692 /* TCPSessionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6DB885A1E984B6000B68692 /* Build configuration list for PBXNativeTarget "TCPSessionTests" */;
+			buildPhases = (
+				C6DB884C1E984B6000B68692 /* Sources */,
+				C6DB884D1E984B6000B68692 /* Frameworks */,
+				C6DB884E1E984B6000B68692 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6DB88571E984B6000B68692 /* PBXTargetDependency */,
+			);
+			name = TCPSessionTests;
+			productName = TCPSessionTests;
+			productReference = C6DB88501E984B6000B68692 /* TCPSessionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +154,11 @@
 				ORGANIZATIONNAME = "Instrumentality of Mankind";
 				TargetAttributes = {
 					C6861D721E96E4E6008A0C2C = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G9SC48NK42;
+						ProvisioningStyle = Automatic;
+					};
+					C6DB884F1E984B6000B68692 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = G9SC48NK42;
 						ProvisioningStyle = Automatic;
@@ -113,20 +178,49 @@
 			projectRoot = "";
 			targets = (
 				C6861D721E96E4E6008A0C2C /* TCPSession */,
+				C6DB884F1E984B6000B68692 /* TCPSessionTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6DB884E1E984B6000B68692 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6861D6F1E96E4E6008A0C2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DB885E1E988D8E00B68692 /* TCPSessionException.m in Sources */,
 				C6861D791E96E4E7008A0C2C /* TCPSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6DB884C1E984B6000B68692 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6DB885F1E988D8E00B68692 /* TCPSessionException.m in Sources */,
+				C6DB88531E984B6000B68692 /* TCPSessionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6DB88571E984B6000B68692 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6861D721E96E4E6008A0C2C /* TCPSession */;
+			targetProxy = C6DB88561E984B6000B68692 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C6861D7A1E96E4E7008A0C2C /* Debug */ = {
@@ -236,6 +330,30 @@
 			};
 			name = Release;
 		};
+		C6DB88581E984B6000B68692 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G9SC48NK42;
+				INFOPLIST_FILE = TCPSessionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tv.from.chajka.TCPSessionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C6DB88591E984B6000B68692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G9SC48NK42;
+				INFOPLIST_FILE = TCPSessionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tv.from.chajka.TCPSessionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -255,6 +373,16 @@
 				C6861D7E1E96E4E7008A0C2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6DB885A1E984B6000B68692 /* Build configuration list for PBXNativeTarget "TCPSessionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6DB88581E984B6000B68692 /* Debug */,
+				C6DB88591E984B6000B68692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
