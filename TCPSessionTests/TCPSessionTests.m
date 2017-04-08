@@ -31,7 +31,7 @@ SInt32 port = 80;
     [super tearDown];
 }
 
-- (void) test01_Allocation
+- (void) test_01_Allocation
 {
 	@try {
 		session = [[TCPSession alloc] initWithServer:server andPort:port];
@@ -43,17 +43,29 @@ SInt32 port = 80;
 	XCTAssertEqual(session.port, port);
 	session.delegate = self;
 	XCTAssertEqual(session.delegate, self);
-}
+}// end - (void) test01_Allocation
 
-- (void) test02_NilServer
+- (void) test_02_NilServer
 {
 	@try {
 		session = [[TCPSession alloc] initWithServer:nilServer andPort:port];
 	} @catch (NSException *exception) {
 		NSLog(@"OK initialize exception catched");
 		XCTAssertNil(session, @"can catch session nil exception : %@", session);
+	}// end try - catch pass nil server name
+}// end - (void) test02_NilServer
+
+- (void) test_03_Reachability
+{
+	@try {
+		session = [[TCPSession alloc] initWithServer:server andPort:port];
+		session.delegate = self;
+		BOOL reachable = [session connect:DirectionReadWrite];
+		XCTAssertTrue(reachable);
+	} @catch (NSException *exception) {
+		XCTFail(@"Unexpected failer");
 	}
-}
+}// end - (void) test_03_Reachability
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

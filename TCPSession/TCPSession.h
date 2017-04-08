@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "TCPSessionException.h"
 
+extern NSString * _Nonnull const KeyStreamError;
+
 @class TCPSession;
 @protocol TCPSessionDelegate <NSObject>
 @required
@@ -21,6 +23,12 @@
 - (void) session:(TCPSession * _Nonnull)session errorOccurred:(NSStream * _Nonnull)stream;
 @end
 
+typedef  NS_ENUM(NSUInteger, TCPSessionDirection) {
+	DirectionRead = 1 << 0,
+	DirectionWrite = 1 << 1,
+	DirectionReadWrite = DirectionRead + DirectionWrite
+};
+
 @interface TCPSession : NSObject {
 	NSString													*server;
 	SInt32														port;
@@ -30,6 +38,11 @@
 	BOOL														haveOpenCompleted;
 	BOOL														haveEndEncounted;
 	BOOL														haveErrorOccured;
+
+	CFReadStreamRef												readStream;
+	CFWriteStreamRef											writeStream;
+	CFRunLoopRef												targetRunLoop;
+	CFRunLoopMode												currentRunLoopMode;
 }
 @property (strong, readonly) NSString 							* _Nonnull server;
 @property (readonly) SInt32										port;
@@ -44,4 +57,15 @@
  @throw server name name is nil
 */
 - (nonnull instancetype) initWithServer:(NSString * _Nonnull)serverName andPort:(SInt32)portNumber;
+
+/*
+ Connect to server and start call delegates
+
+ @param TCPSesionDirection direction for connection to server
+ @param RunLoopRef target runloop to schedule stream(s)
+ @throw did not set delegate
+*/
+- (BOOL) connect:(TCPSessionDirection)direction inRunLoop:(CFRunLoopRef _Nullable)runLoop;
+
+- (BOOL) connect:(TCPSessionDirection)direction inRunLoop:(CFRunLoopRef _Nonnull)runLoop withMode:(CFRunLoopMode _Nonnull)mode;
 @end
