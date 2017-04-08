@@ -9,12 +9,14 @@
 #import <XCTest/XCTest.h>
 #import "TCPSession.h"
 
-@interface TCPSessionTests : XCTestCase<TCPSessionDelegate>
+@interface TCPSessionTests : XCTestCase<TCPSessionDelegate> {
+	TCPSession *session;
+}
 
 @end
 
 NSString * const server = @"chajka.from.tv";
-//NSString * const server = nil;
+NSString * const nilServer = nil;
 SInt32 port = 80;
 
 @implementation TCPSessionTests
@@ -31,17 +33,26 @@ SInt32 port = 80;
 
 - (void) test01_Allocation
 {
-	TCPSession *session = nil;
 	@try {
 		session = [[TCPSession alloc] initWithServer:server andPort:port];
 	} @catch (TCPSessionException *exception) {
-		NSLog(@"initialize exception catched");
+		NSLog(@"failer initialize exception catched");
 	}
 	XCTAssertNotNil(session);
 	XCTAssertEqual(session.server, server);
 	XCTAssertEqual(session.port, port);
 	session.delegate = self;
 	XCTAssertEqual(session.delegate, self);
+}
+
+- (void) test02_NilServer
+{
+	@try {
+		session = [[TCPSession alloc] initWithServer:nilServer andPort:port];
+	} @catch (NSException *exception) {
+		NSLog(@"OK initialize exception catched");
+		XCTAssertNil(session, @"can catch session nil exception : %@", session);
+	}
 }
 
 - (void)testPerformanceExample {
