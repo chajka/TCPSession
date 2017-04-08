@@ -11,6 +11,9 @@
 		C6861D791E96E4E7008A0C2C /* TCPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C6861D781E96E4E7008A0C2C /* TCPSession.m */; };
 		C6DB88531E984B6000B68692 /* TCPSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB88521E984B6000B68692 /* TCPSessionTests.m */; };
 		C6DB88551E984B6000B68692 /* libTCPSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6861D731E96E4E7008A0C2C /* libTCPSession.a */; };
+		C6DB885D1E988D8E00B68692 /* TCPSessionException.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DB885B1E988D8E00B68692 /* TCPSessionException.h */; };
+		C6DB885E1E988D8E00B68692 /* TCPSessionException.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB885C1E988D8E00B68692 /* TCPSessionException.m */; };
+		C6DB885F1E988D8E00B68692 /* TCPSessionException.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DB885C1E988D8E00B68692 /* TCPSessionException.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,8 @@
 		C6DB88501E984B6000B68692 /* TCPSessionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCPSessionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DB88521E984B6000B68692 /* TCPSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPSessionTests.m; sourceTree = "<group>"; };
 		C6DB88541E984B6000B68692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DB885B1E988D8E00B68692 /* TCPSessionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPSessionException.h; sourceTree = "<group>"; };
+		C6DB885C1E988D8E00B68692 /* TCPSessionException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPSessionException.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,8 @@
 			children = (
 				C6861D761E96E4E7008A0C2C /* TCPSession.h */,
 				C6861D781E96E4E7008A0C2C /* TCPSession.m */,
+				C6DB885B1E988D8E00B68692 /* TCPSessionException.h */,
+				C6DB885C1E988D8E00B68692 /* TCPSessionException.m */,
 			);
 			path = TCPSession;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6861D771E96E4E7008A0C2C /* TCPSession.h in Headers */,
+				C6DB885D1E988D8E00B68692 /* TCPSessionException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DB885E1E988D8E00B68692 /* TCPSessionException.m in Sources */,
 				C6861D791E96E4E7008A0C2C /* TCPSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DB885F1E988D8E00B68692 /* TCPSessionException.m in Sources */,
 				C6DB88531E984B6000B68692 /* TCPSessionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +382,7 @@
 				C6DB88591E984B6000B68692 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

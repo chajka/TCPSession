@@ -7,10 +7,17 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TCPSession.h"
 
-@interface TCPSessionTests : XCTestCase
+@interface TCPSessionTests : XCTestCase<TCPSessionDelegate> {
+	TCPSession *session;
+}
 
 @end
+
+NSString * const server = @"chajka.from.tv";
+NSString * const nilServer = nil;
+SInt32 port = 80;
 
 @implementation TCPSessionTests
 
@@ -24,10 +31,41 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
+- (void) test_01_Allocation
+{
+	@try {
+		session = [[TCPSession alloc] initWithServer:server andPort:port];
+	} @catch (TCPSessionException *exception) {
+		NSLog(@"failer initialize exception catched");
+	}
+	XCTAssertNotNil(session);
+	XCTAssertEqual(session.server, server);
+	XCTAssertEqual(session.port, port);
+	session.delegate = self;
+	XCTAssertEqual(session.delegate, self);
+}// end - (void) test01_Allocation
+
+- (void) test_02_NilServer
+{
+	@try {
+		session = [[TCPSession alloc] initWithServer:nilServer andPort:port];
+	} @catch (NSException *exception) {
+		NSLog(@"OK initialize exception catched");
+		XCTAssertNil(session, @"can catch session nil exception : %@", session);
+	}// end try - catch pass nil server name
+}// end - (void) test02_NilServer
+
+- (void) test_03_Reachability
+{
+	@try {
+		session = [[TCPSession alloc] initWithServer:server andPort:port];
+		session.delegate = self;
+		BOOL reachable = [session connect:DirectionReadWrite];
+		XCTAssertTrue(reachable);
+	} @catch (NSException *exception) {
+		XCTFail(@"Unexpected failer");
+	}
+}// end - (void) test_03_Reachability
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
@@ -36,4 +74,8 @@
     }];
 }
 
+- (void) session:(TCPSession *)session hasBytesAvailable:(NSInputStream *)stream
+{
+	
+}
 @end
