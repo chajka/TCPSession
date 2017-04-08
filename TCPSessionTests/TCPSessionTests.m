@@ -60,7 +60,7 @@ SInt32 port = 80;
 	@try {
 		session = [[TCPSession alloc] initWithServer:server andPort:port];
 		session.delegate = self;
-		BOOL reachable = [session connect:DirectionReadWrite];
+		BOOL reachable = [session connect:DirectionReadWrite inRunLoop:NULL];
 		XCTAssertTrue(reachable);
 	} @catch (NSException *exception) {
 		XCTFail(@"Unexpected failer");
