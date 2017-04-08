@@ -70,7 +70,14 @@ SInt32 port = 80;
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+		@try {
+			session = [[TCPSession alloc] initWithServer:server andPort:port];
+			session.delegate = self;
+			BOOL reachable = [session connect:DirectionReadWrite inRunLoop:NULL];
+			XCTAssertTrue(reachable);
+		} @catch (NSException *exception) {
+			XCTFail(@"Unexpected failer");
+		}
     }];
 }
 
