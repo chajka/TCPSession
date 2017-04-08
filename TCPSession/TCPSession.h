@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TCPSessionException.h"
 
 @class TCPSession;
 @protocol TCPSessionDelegate <NSObject>

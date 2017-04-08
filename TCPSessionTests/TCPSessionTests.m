@@ -7,10 +7,15 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TCPSession.h"
 
-@interface TCPSessionTests : XCTestCase
+@interface TCPSessionTests : XCTestCase<TCPSessionDelegate>
 
 @end
+
+NSString * const server = @"chajka.from.tv";
+//NSString * const server = nil;
+SInt32 port = 80;
 
 @implementation TCPSessionTests
 
@@ -24,9 +29,19 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void) test01_Allocation
+{
+	TCPSession *session = nil;
+	@try {
+		session = [[TCPSession alloc] initWithServer:server andPort:port];
+	} @catch (TCPSessionException *exception) {
+		NSLog(@"initialize exception catched");
+	}
+	XCTAssertNotNil(session);
+	XCTAssertEqual(session.server, server);
+	XCTAssertEqual(session.port, port);
+	session.delegate = self;
+	XCTAssertEqual(session.delegate, self);
 }
 
 - (void)testPerformanceExample {
@@ -36,4 +51,8 @@
     }];
 }
 
+- (void) session:(TCPSession *)session hasBytesAvailable:(NSInputStream *)stream
+{
+	
+}
 @end

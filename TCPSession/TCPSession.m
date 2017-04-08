@@ -7,7 +7,6 @@
 //
 
 #import "TCPSession.h"
-#import "TCPSessionException.h"
 
 @implementation TCPSession
 #pragma mark - synthesize properties
@@ -24,7 +23,7 @@
 	if (!serverName)
 		@throw [TCPSessionException exceptionWithName:InitializeFail reason:ServerNameIsNil userInfo:nil];
 
-	server = serverName;
+	server = [[NSString alloc] initWithString:serverName];
 	port = portNumber;
 
 	return self;
