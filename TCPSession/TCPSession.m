@@ -175,7 +175,7 @@ static void writeStreamCallback(CFWriteStreamRef stream, CFStreamEventType event
 	}// end if have read stream
 
 	CFReadStreamScheduleWithRunLoop(readStream, targetRunLoop, currentRunLoopMode);
-	if (CFReadStreamOpen(readStream)) {
+	if (!CFReadStreamOpen(readStream)) {
 		__autoreleasing NSError *err = (__bridge_transfer NSError *)CFReadStreamCopyError(readStream);
 		[self unscheduleReadStream:targetRunLoop mode:currentRunLoopMode];
 		@throw [TCPSessionException exceptionWithName:StreamScheduleFail reason:ReadStreamScheduleFail userInfo:@{KeyStreamError:err}];
