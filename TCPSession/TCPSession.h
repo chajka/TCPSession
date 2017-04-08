@@ -33,4 +33,14 @@
 @property (strong, readonly) NSString 							* _Nonnull server;
 @property (readonly) SInt32										port;
 @property (weak, readwrite) id<TCPSessionDelegate> _Nullable	delegate;
+
+/*
+ Initialize
+
+ @param server name as NSStreing
+ @param server port number as integer
+ @throw TCPSessionException initialization fail
+ @throw server name name is nil
+*/
+- (nonnull instancetype) initWithServer:(NSString * _Nonnull)serverName andPort:(SInt32)portNumber;
 @end

@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const InitializeFail;
+extern NSString * const ConstructorReturnNil;
+extern NSString * const ServerNameIsNil;
+
 @interface TCPSessionException : NSException
 
 @end
